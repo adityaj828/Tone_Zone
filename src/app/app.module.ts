@@ -16,6 +16,8 @@ import { TodoComponent } from './apps/todo-list/todo/todo.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
+// import { DataTablesModule } from 'angular-datatables';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,16 +29,18 @@ import { TodoListComponent } from './apps/todo-list/todo-list.component';
     TodoListComponent,
     TodoComponent,
     SpinnerComponent,
-    ContentAnimateDirective
+    ContentAnimateDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
+    // DataTablesModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    HttpClientModule,
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
