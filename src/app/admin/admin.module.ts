@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserViewComponent } from './user-view/user-view.component';
 
+import { DataTablesModule } from 'angular-datatables';
 
 const routes: Routes = [
   { path: 'users', component: UserViewComponent }
@@ -16,8 +17,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     NgbModule,
+    DataTablesModule,
     RouterModule.forChild(routes),
-    
   ]
 })
 export class AdminModule { }
