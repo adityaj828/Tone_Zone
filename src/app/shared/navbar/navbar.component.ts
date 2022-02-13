@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 
@@ -12,8 +13,9 @@ export class NavbarComponent implements OnInit {
   public iconOnlyToggled = false;
   public sidebarToggled = false;
   user = null;
-  constructor(config: NgbDropdownConfig, 
-              private authenticationService: AuthenticationService) {
+  constructor(config: NgbDropdownConfig,
+              private authenticationService: AuthenticationService,
+              private router: Router) {
     config.placement = 'bottom-right';
   }
 
@@ -52,5 +54,8 @@ export class NavbarComponent implements OnInit {
   // toggleRightSidebar() {
   //   document.querySelector('#right-sidebar').classList.toggle('open');
   // }
-
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/admin/login']);
+  }
 }
