@@ -11,12 +11,23 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(JSON.stringify(localStorage.getItem('currentUser'))));
     this.currentUser = this.currentUserSubject.asObservable();
+
   }
 
   public get currentUserValue(): User {
+      if (this.currentUserSubject == null) {
+        return null;
+      }
       return this.currentUserSubject.value;
+  }
+
+  public isLoggedIn(): boolean {
+    if (this.currentUser) {
+      return true;
+    }
+    return false;
   }
 
   login(email, password) {
@@ -26,9 +37,12 @@ export class AuthenticationService {
         'headers': headers
     })
     .pipe(map(user => {
-        localStorage.setItem('currentUser', JSON.stringify(new User(email, password)));
-        this.currentUserSubject.next(user);
-        return user;
+      console.log(user);
+      if (user.login) {
+        localStorage.setItem('currentUser', user.data);
+        this.currentUserSubject.next(user.data);
+      }
+      return user;
     }));
   }
 
