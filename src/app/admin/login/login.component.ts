@@ -35,12 +35,14 @@ export class LoginComponent implements OnInit {
         .pipe(first())
         .subscribe(
           data => {
+            console.log(data);
             if (data) {
-              this.wrongAuthentication = false;
-              this.router.navigate(['/dashboard']);
-            } else {
-              this.wrongAuthentication = true;
-              console.log(data);
+              if (data.login) {
+                this.wrongAuthentication = false;
+                this.router.navigate(['/dashboard']);
+              } else {
+                this.wrongAuthentication = true;
+              }
             }
           },
           error => {
