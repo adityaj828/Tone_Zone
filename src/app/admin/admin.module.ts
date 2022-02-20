@@ -16,4 +16,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class UserPagesModule { }
+export class AdminModule { }
