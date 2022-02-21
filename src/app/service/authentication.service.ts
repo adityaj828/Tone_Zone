@@ -50,6 +50,24 @@ export class AuthenticationService {
     }));
   }
 
+  register(email, password) {
+    this.loginBtnSpinner.emit(true);
+    let headers = {'content-type': 'application/json'};
+    console.log(JSON.stringify(new User(email, password)));
+    return this.http.post<any>(`http://localhost:8080/admin/signup`, JSON.stringify(new User(email, password)), {
+        'headers': headers
+    })
+    .pipe(map(user => {
+      console.log(user);
+      if (user.data) {
+        localStorage.setItem('currentUser', user.data);
+        this.currentUserSubject.next(user.data);
+      }
+      this.loginBtnSpinner.emit(false);
+      return user;
+    }));
+  }
+
   logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
