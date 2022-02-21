@@ -12,7 +12,6 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginFormSubmitted: boolean;
-  isLoading: boolean;
   wrongAuthentication: boolean;
   constructor(private authenticationService: AuthenticationService,
               private router: Router) {
@@ -29,27 +28,22 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loginFormSubmitted = true;
-    this.isLoading = true;
     if (this.loginForm.valid) {
       this.authenticationService.login(this.username.value, this.password.value)
         .pipe(first())
         .subscribe(
           data => {
-            console.log(data);
             if (data) {
+              this.wrongAuthentication = data.login;
               if (data.login) {
-                this.wrongAuthentication = false;
                 this.router.navigate(['/dashboard']);
-              } else {
-                this.wrongAuthentication = true;
               }
             }
           },
           error => {
             console.error(error);
-            this.isLoading = false;
           });
-    }
+        }
   }
 
   get username() {
