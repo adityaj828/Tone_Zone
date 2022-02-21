@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,10 +10,12 @@ import { User } from '../model/user.model';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+
+  @Output() loginBtnSpinner = new EventEmitter<boolean>();
+
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(JSON.stringify(localStorage.getItem('currentUser'))));
     this.currentUser = this.currentUserSubject.asObservable();
-
   }
 
   public get currentUserValue(): User {
@@ -24,13 +26,14 @@ export class AuthenticationService {
   }
 
   public isLoggedIn(): boolean {
-    if (this.currentUser) {
+    if (this.currentUserValue != null) {
       return true;
     }
     return false;
   }
 
   login(email, password) {
+    this.loginBtnSpinner.emit(true);
     let headers = {'content-type': 'application/json'};
     console.log(JSON.stringify(new User(email, password)));
     return this.http.post<any>(`http://localhost:8080/admin/login`, JSON.stringify(new User(email, password)), {
@@ -42,6 +45,7 @@ export class AuthenticationService {
         localStorage.setItem('currentUser', user.data);
         this.currentUserSubject.next(user.data);
       }
+      this.loginBtnSpinner.emit(false);
       return user;
     }));
   }
