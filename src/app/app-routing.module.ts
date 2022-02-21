@@ -4,6 +4,7 @@ import { LoginComponent } from './admin/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },  
