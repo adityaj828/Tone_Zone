@@ -42,8 +42,9 @@ export class LoginComponent implements OnInit {
           },
           error => {
             console.error(error);
-          });
-        }
+          }
+        );
+    }
   }
 
   get username() {
