@@ -17,6 +17,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
 import { DataTablesModule } from 'angular-datatables';
+import { AuthenticationService } from './service/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -42,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     ChartsModule,
     HttpClientModule,
   ],
-  providers: [ThemeService],
+  providers: [ThemeService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

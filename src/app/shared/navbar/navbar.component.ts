@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,12 +12,17 @@ import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 export class NavbarComponent implements OnInit {
   public iconOnlyToggled = false;
   public sidebarToggled = false;
-  
-  constructor(config: NgbDropdownConfig) {
+  user = null;
+  constructor(config: NgbDropdownConfig,
+              private authenticationService: AuthenticationService,
+              private router: Router) {
     config.placement = 'bottom-right';
   }
 
   ngOnInit() {
+    if (this.authenticationService.currentUserValue != null) {
+      this.user = this.authenticationService.currentUserValue;
+    }
   }
 
   // toggle sidebar in small devices
@@ -47,5 +54,8 @@ export class NavbarComponent implements OnInit {
   // toggleRightSidebar() {
   //   document.querySelector('#right-sidebar').classList.toggle('open');
   // }
-
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/admin/login']);
+  }
 }

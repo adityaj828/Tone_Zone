@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
+import { AuthenticationService } from './service/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,12 @@ export class AppComponent implements OnInit{
   showFooter: boolean = true;
   isLoading: boolean;
 
-  constructor(private router: Router) {
-    
+  constructor(private router: Router, private authenticationService: AuthenticationService) {
+
     // Removing Sidebar, Navbar, Footer for Documentation, Error and Auth pages
-    router.events.forEach((event) => { 
+    router.events.forEach((event) => {
       if(event instanceof NavigationStart) {
-        if((event['url'] == '/user-pages/login') || (event['url'] == '/user-pages/register') || (event['url'] == '/error-pages/404') || (event['url'] == '/error-pages/500') ) {
+        if((event['url'] == '/admin/login') || (event['url'] == '/admin/register') || (event['url'] == '/error-pages/404') || (event['url'] == '/error-pages/500') ) {
           this.showSidebar = false;
           this.showNavbar = false;
           this.showFooter = false;
@@ -43,7 +44,7 @@ export class AppComponent implements OnInit{
     });
 
     // Spinner for lazyload modules
-    router.events.forEach((event) => { 
+    router.events.forEach((event) => {
       if (event instanceof RouteConfigLoadStart) {
           this.isLoading = true;
       } else if (event instanceof RouteConfigLoadEnd) {
@@ -61,6 +62,12 @@ export class AppComponent implements OnInit{
           return;
       }
       window.scrollTo(0, 0);
+    });
+
+    this.authenticationService.loginBtnSpinner
+    .subscribe((data: boolean) => {
+      this.isLoading = data;
+      alert(data);
     });
   }
 }
