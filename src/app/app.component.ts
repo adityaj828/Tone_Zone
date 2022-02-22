@@ -67,7 +67,6 @@ export class AppComponent implements OnInit{
     this.authenticationService.loginBtnSpinner
     .subscribe((data: boolean) => {
       this.isLoading = data;
-      alert(data);
     });
   }
 }
