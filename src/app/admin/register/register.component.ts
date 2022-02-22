@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
           },
           error => {
             console.error(error);
+            this.authenticationService.loginBtnSpinner.emit(false);
           });
         }
   }
