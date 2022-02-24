@@ -1,0 +1,117 @@
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">User Edit form</h4>
+        <p class="card-description">
+          
+        </p>
+        <form #myForm="ngForm"   novalidate>
+         
+                                                                          
+        <div class="row">
+          <div class="form-group col-md-6 ">
+            <label for="exampleInputUsername1">Username</label>
+            <input required type="text"  class="form-control" [(ngModel)]="user.fname"
+            id="exampleInputUsername1" name="username" placeholder="Username" ngModel #username="ngModel" (change)="log(username)">
+            <div class="text-danger mt-2 text-small custom-invalid-feedback" *ngIf="username.touched &&  !username.valid">UserName is Required</div>
+          </div>
+          
+          <div class="form-group col-md-6">
+            <label for="exampleInputEmail1">Email address</label>
+            <input required type="email" class="form-control" [(ngModel)]="user.email"
+             id="exampleInputEmail1" name="email" placeholder="Email" ngModel #email="ngModel" (change)="log(email)">
+            <div class="text-danger mt-2 text-small" *ngIf="email.touched &&  !email.valid">Email is Required</div>
+           
+           
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="exampleInputAddress1">Address</label>
+            <input required type="text" class="form-control" [(ngModel)]="user.address"
+            id="exampleInputAddress1" name="address" placeholder="Address" ngModel #address="ngModel" (change)="log(address)">
+            <div class="text-danger mt-2 text-small" *ngIf="address.touched &&  !address.valid">Address is Required</div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="exampleInputPhoneNumber1">Phone Number</label>
+            <input required  pattern="^[0-9]{10}$"   type="number" [ngModel]="user.phone"
+            class="form-control" id="exampleInputPhoneNumber1" name="phoneNumber" placeholder="Phone Number" ngModel #phoneNumber="ngModel" (phoneNumber)="log(email)"l>
+            <div class="text-danger mt-2 text-small" *ngIf="phoneNumber.touched &&  !phoneNumber.valid">
+              <div *ngIf="phoneNumber.errors.required">Phone Number is required</div>
+              <div *ngIf="phoneNumber.errors.pattern">It must be 10 digit</div>
+            </div>
+          </div>
+        </div>
+          
+        <div class="row">
+          <div class="form-group col-md-6">
+            <p>Please select your gender : </p>
+            
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input"  name="optionsRadios"  id="optionsRadios1" value="" >
+                  Male
+                  <i class="input-helper"></i>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input"  name="optionsRadios" id="optionsRadios1" value="" > 
+                  Female
+                  <i class="input-helper"></i>
+                </label>
+              </div>
+
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input  type="radio" class="form-check-input"  name="optionsRadios" id="optionsRadios1" value="" >
+                  Others
+                  <i class="input-helper"></i>
+                </label>
+              </div>
+            
+          </div>
+        
+        <div class="form-group col-md-6">
+            <label for="myfile">Edit your profile picture:</label> <br><br>
+            <input required type="file" id="myfile" name="myfile" ngModel #ProfilePicture="ngModel" (change)="log(ProfilePicture)">
+            <div class="text-danger mt-2 text-small" *ngIf="ProfilePicture.touched &&  !ProfilePicture.valid">
+
+              <div *ngIf="ProfilePicture.errors.required">Profile Picture is required</div>
+            </div><br><br>
+        </div>
+    </div>
+        
+        <div class="row">
+            <div class="form-group col-md-6">
+            <label for="exampleInputPassword1">Password</label>
+            <input required minlength="8" maxlength="20" type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password" ngModel #password="ngModel" (change)="log(password)">
+            <div class="text-danger mt-2 text-small" *ngIf="password.touched &&  !password.valid">
+
+              <div *ngIf="password.errors.required">Password is required</div>
+              <div *ngIf="password.errors.minlength">Password is too short</div>
+              <div *ngIf="password.errors.maxlength">Password is too long</div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="exampleInputConfirmPassword1">Confirm Password</label>
+            <input required  minlength="8" maxlength="20" type="password" class="form-control" name="confirmPassword" id="exampleInputConfirmPassword1" placeholder="Password" ngModel #confirmPassword="ngModel" (change)="log(confirmPassword)">
+            <div class="text-danger mt-2 text-small" *ngIf="confirmPassword.touched &&  !confirmPassword.valid">
+              <div *ngIf="confirmPassword.errors.required">Confirm Password is Required</div>
+              <div *ngIf="confirmPassword.errors.minlength">Confirm Password is too short</div>
+              <div *ngIf="confirmPassword.errors.maxlength">Confirm Password is too long</div>
+
+
+            </div>
+          </div>
+        </div>
+         
+          <button  (click)="updateUser()" class="btn btn-gradient-primary mr-2" >Submit</button>
+          
+          <button class="btn btn-light">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
