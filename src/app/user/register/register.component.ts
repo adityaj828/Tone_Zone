@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 
 @Component({
-  selector: 'app-register',
+  selector: 'user-app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if (this.registerForm.valid) {
-      this.authenticationService.register(this.username.value, this.password.value, 'admin')
+      this.authenticationService.register(this.username.value, this.password.value, 'user')
         .pipe(first())
         .subscribe(
           data => {
