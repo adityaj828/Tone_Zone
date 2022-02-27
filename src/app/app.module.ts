@@ -19,7 +19,7 @@ import { TodoListComponent } from './apps/todo-list/todo-list.component';
 import { DataTablesModule } from 'angular-datatables';
 import { AuthenticationService } from './service/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
-import { UsersidebarComponent } from './user/shared/usersidebar/usersidebar.component';
+import { UserfooterComponent } from './user/shared/usersidebar/usersidebar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { UsersidebarComponent } from './user/shared/usersidebar/usersidebar.comp
     TodoComponent,
     SpinnerComponent,
     ContentAnimateDirective,
-    UsersidebarComponent,
+    UserfooterComponent,
   ],
   imports: [
     BrowserModule,
