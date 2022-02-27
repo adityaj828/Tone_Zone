@@ -8,8 +8,8 @@ import { BaseService } from 'src/app/service/base.service';
   styleUrls: ['./service-view.component.scss']
 })
 export class ServiceViewComponent {
-  users: [];
-  getUsersURL = 'services/all';
+  services: [];
+  getUsersURL = 'service-centers/all';
   dtOptions: DataTables.Settings = {};
 
   constructor(private baseService: BaseService) { }
@@ -29,7 +29,7 @@ export class ServiceViewComponent {
         this.baseService.get(this.getUsersURL)
           .subscribe(resp => {
 
-            this.users = resp;
+            this.services = resp;
 
             callback({
               recordsTotal: resp.length,
