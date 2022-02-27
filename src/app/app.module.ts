@@ -19,7 +19,7 @@ import { TodoListComponent } from './apps/todo-list/todo-list.component';
 import { DataTablesModule } from 'angular-datatables';
 import { AuthenticationService } from './service/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
-import { UserfooterComponent } from './user/shared/usersidebar/usersidebar.component';
+import { UserfooterComponent } from './user/shared/userfooter/userfooter.component';
 
 @NgModule({
   declarations: [
