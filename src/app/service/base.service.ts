@@ -11,4 +11,11 @@ export class BaseService {
   public get(url) {
     return this.http.get<any>(`http://localhost:8080/${url}`)
   }
+
+  public post(url, data) {
+    let headers = {'content-type': 'application/json'};
+    return this.http.post<any>(`http://localhost:8080/${url}`, data, {
+      'headers': headers
+    });
+  }
 }

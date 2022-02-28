@@ -1,0 +1,52 @@
+<div class="d-flex align-items-center auth px-0">
+  <div class="card shadow">
+    <div class="card-header">
+      <h4 class="card-title">Add Service Center</h4>
+    </div>
+    <div class="card-body">
+      <div class="row w-100 mx-0">
+        <div class="col-md-12">
+
+          <form [formGroup]="addServiceForm" (ngSubmit)="addService()" class="pt-3">
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name">Center Name</label>
+                  <input formControlName="name" required type="email" class="form-control form-control-lg" id="exampleInputEmail1" name="name" placeholder="Name">
+                  <div class="text-danger mt-2 text-small" *ngIf="(name.touched && !name.valid) || (addServiceFormSubmitted && !name.valid)">Name is Required</div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input formControlName="email" required type="email" class="form-control form-control-lg" id="exampleInputPassword1" name="email" placeholder="Email">
+                  <div class="text-danger mt-2 text-small" *ngIf="(email.touched && !email.valid) || (addServiceFormSubmitted && !email.valid)">Email is Required</div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="describtion">Describtion</label>
+                  <textarea formControlName="describtion" required class="form-control" id="describtion" rows="4"></textarea>
+                  <div class="text-danger mt-2 text-small" *ngIf="(describtion.touched && !describtion.valid) || (addServiceFormSubmitted && !describtion.valid)">Describtion is Required</div>
+                </div>
+              </div>
+              <div class="col-md-9"></div>
+              <div class="col-md-3">
+                <div class="d-flex justify-content-end">
+                  <button type="submit" class="btn btn-primary btn-sm font-weight-medium auth-form-btn" >Create</button>
+                </div>
+              </div>
+            </div>
+
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
