@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './admin/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'error-pages', loadChildren: () => import('./error-pages/error-pages.module').then(m => m.ErrorPagesModule) },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'search', component: SearchbarComponent}
 ];
 
 @NgModule({
