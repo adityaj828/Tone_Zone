@@ -34,7 +34,7 @@ import { ServiceCardComponent } from './user/service-card/service-card.component
     TodoListComponent,
     TodoComponent,
     SpinnerComponent,
-    ContentAnimateDirective,
+    ContentAnimateDirective
     ServiceCardComponent,
    // FrontComponent,
     
