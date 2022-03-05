@@ -5,19 +5,31 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserEditComponent } from './user-edit/user-edit.component';
-import { FormsModule } from '@angular/forms';
+import { UserViewComponent } from './user-view/user-view.component';
+
+import { DataTablesModule } from 'angular-datatables';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from '../auth.guard';
+
 
 const routes: Routes = [
-  { path: 'user-edit', component: UserEditComponent }
+  { path: 'user-edit', component: UserEditComponent },
+  { path: 'users', component: UserViewComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent },
 ]
 
 @NgModule({
-  declarations: [UserEditComponent],
+  declarations: [UserEditComponent,LoginComponent, RegisterComponent, UserViewComponent],
   imports: [
-    CommonModule,
     NgbModule,
+    CommonModule,
     FormsModule,
+    DataTablesModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule,
     
   ]
 })
