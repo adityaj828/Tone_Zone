@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchbarComponent implements OnInit {
 
+  filter: String = 'Search by ';
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  Onfilterchange(filtername: any) {
+    this.filter= 'Search by '+filtername;
 }
+}
+

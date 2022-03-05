@@ -1,19 +1,23 @@
 
 <div class="input-group">
-  <input type="text" class="form-control" placeholder="Search...">
+  <input type="text" class="form-control" placeholder={{filter}}>
   <span class="input-group-btn">
-      <button class="btn btn-default" type="button" aria-label="Search">       
+      <button  type="button" aria-label="Search">       
           <ul class="navbar-nav navbar-nav-right">
               <li  ngbDropdown>
                   <a  class="mdi mdi-filter-outline" style="font-size: 18px;" ngbDropdownToggle>
                   </a>
                   <div ngbDropdownMenu >
-                      <a class="dropdown-item" >
+                      <a class="dropdown-item" (click)="Onfilterchange('Service Center');">
                       Service Center
                       </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" >
+                    <a class="dropdown-item" (click)="Onfilterchange('Area');">
                       Area
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" (click)="Onfilterchange('Price');">
+                      Price
                     </a>
                   </div>
                 </li>
@@ -22,3 +26,5 @@
   </span>
   
 </div> 
+
+
