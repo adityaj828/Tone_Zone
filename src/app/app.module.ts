@@ -19,8 +19,6 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
 import { ServiceCardComponent } from './user/service-card/service-card.component';
-//import { FrontComponent } from './app/front/front.component';
-
 
 
 
@@ -34,9 +32,9 @@ import { ServiceCardComponent } from './user/service-card/service-card.component
     TodoListComponent,
     TodoComponent,
     SpinnerComponent,
-    ContentAnimateDirective
+    ContentAnimateDirective,
     ServiceCardComponent,
-   // FrontComponent,
+   
     
     
   ],
@@ -47,8 +45,9 @@ import { ServiceCardComponent } from './user/service-card/service-card.component
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    ChartsModule,
     HttpClientModule,
-    ChartsModule
+    
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]
