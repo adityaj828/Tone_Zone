@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
             if (data) {
               this.wrongAuthentication = data.login;
               if (data.login) {
-                alert('login');
+                alert('login success');
                 // this.router.navigate(['/dashboard']);
               }
             }
