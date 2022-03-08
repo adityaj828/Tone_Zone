@@ -25,7 +25,8 @@ export class AppComponent implements OnInit{
             (event['url'] == '/error-pages/404') ||
             (event['url'] == '/error-pages/500') ||
             (event['url'] == '/user/login') ||
-            (event['url'] == '/user/register')) {
+            (event['url'] == '/user/register') ||
+            (event['url'] == '/user/single-service')) {
           this.showSidebar = false;
           this.showNavbar = false;
           this.showFooter = false;
