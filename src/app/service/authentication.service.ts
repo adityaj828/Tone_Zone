@@ -32,11 +32,11 @@ export class AuthenticationService {
     return false;
   }
 
-  login(email, password) {
+  login(email, password, authType) {
     this.loginBtnSpinner.emit(true);
     let headers = {'content-type': 'application/json'};
     console.log(JSON.stringify(new User(email, password)));
-    return this.http.post<any>(`http://localhost:8080/admin/login`, JSON.stringify(new User(email, password)), {
+    return this.http.post<any>(`http://localhost:8080/${authType}/login`, JSON.stringify(new User(email, password)), {
         'headers': headers
     })
     .pipe(map(user => {
@@ -50,11 +50,11 @@ export class AuthenticationService {
     }));
   }
 
-  register(email, password) {
+  register(email, password, authType) {
     this.loginBtnSpinner.emit(true);
     let headers = {'content-type': 'application/json'};
     console.log(JSON.stringify(new User(email, password)));
-    return this.http.post<any>(`http://localhost:8080/admin/signup`, JSON.stringify(new User(email, password)), {
+    return this.http.post<any>(`http://localhost:8080/${authType}/signup`, JSON.stringify(new User(email, password)), {
         'headers': headers
     })
     .pipe(map(user => {

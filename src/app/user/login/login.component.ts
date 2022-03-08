@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 
 @Component({
-  selector: 'app-login',
+  selector: 'user-app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -29,14 +29,15 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginFormSubmitted = true;
     if (this.loginForm.valid) {
-      this.authenticationService.login(this.username.value, this.password.value, 'admin')
+      this.authenticationService.login(this.username.value, this.password.value, 'user')
         .pipe(first())
         .subscribe(
           data => {
             if (data) {
               this.wrongAuthentication = data.login;
               if (data.login) {
-                this.router.navigate(['/dashboard']);
+                alert('login success');
+                // this.router.navigate(['/dashboard']);
               }
             }
           },

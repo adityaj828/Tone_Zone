@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="card shadow">
+    <div class="card-header">
+      <div class="d-flex justify-content-between">
+        <h4 class="card-title">Service Center</h4>
+        <a class="btn btn-primary btn-sm" routerLink="/admin/add-service" routerLinkActive>
+          <span class="menu-title">Add Service Center</span>
+        </a>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="table-responsive">
+            <table datatable [dtOptions]="dtOptions" class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Desribtion</th>
+                  <th>Rating</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let service of services">
+                  <td>{{service.name}}</td>
+                  <td>{{service.email}}</td>
+                  <td>{{service.describtion}}</td>
+                  <td>{{service.rating}}</td>
+                  <td>
+                    <div class="d-flex">
+                      <div class="mr-3">
+                        <i class="mdi mdi-grease-pencil text-success display-5 cursor-pointer"></i>
+                      </div>
+                      <div class="">
+                        <i class="mdi mdi-delete text-danger display-5 cursor-pointer"></i>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
