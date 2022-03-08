@@ -6,6 +6,8 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 
 
 
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
@@ -20,7 +22,7 @@ const routes: Routes = [
   { path: 'error-pages', loadChildren: () => import('./error-pages/error-pages.module').then(m => m.ErrorPagesModule) },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
-  { path: 'search', component: SearchbarComponent}
+  { path: 'search', component: SearchbarComponent},
 ];
 
 @NgModule({

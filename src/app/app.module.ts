@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
+
+import {HttpClientModule} from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule, ThemeService } from 'ng2-charts';
@@ -18,8 +20,10 @@ import { ContentAnimateDirective } from './shared/directives/content-animate.dir
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
 import { DataTablesModule } from 'angular-datatables';
 import { AuthenticationService } from './service/authentication.service';
-import { HttpClientModule } from '@angular/common/http';
 import { UserfooterComponent } from './user/shared/userfooter/userfooter.component';
+import { ServiceCardComponent } from './user/service-card/service-card.component';
+
+
 
 @NgModule({
   declarations: [
@@ -33,6 +37,7 @@ import { UserfooterComponent } from './user/shared/userfooter/userfooter.compone
     SpinnerComponent,
     ContentAnimateDirective,
     UserfooterComponent,
+    ServiceCardComponent,
   ],
   imports: [
     BrowserModule,

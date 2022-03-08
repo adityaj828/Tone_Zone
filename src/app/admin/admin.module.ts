@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserViewComponent } from './user-view/user-view.component';
 import { ServiceViewComponent } from './service-view/service-view.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 import { DataTablesModule } from 'angular-datatables';
 import { LoginComponent } from './login/login.component';
@@ -20,10 +21,11 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'services', component: ServiceViewComponent },
   { path: 'add-service', component: ServiceAddComponent },
+  { path: 'user-edit', component: UserEditComponent },
 ]
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, UserViewComponent, ServiceViewComponent, ServiceAddComponent],
+  declarations: [LoginComponent, RegisterComponent, UserViewComponent, ServiceViewComponent, ServiceAddComponent, UserEditComponent],
   imports: [
     NgbModule,
     CommonModule,

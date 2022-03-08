@@ -1,6 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
 import { AuthenticationService } from './service/authentication.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
