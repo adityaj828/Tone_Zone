@@ -69,3 +69,39 @@ img {
 .text-color-primary {
   color: #003366;
 }
+.slot-btn {
+  display: inline-block;
+  padding: 7px 10px;
+  border: 1px solid #003366;
+  color: #003366;
+  transition: linear .3s all;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.slot-btn:hover {
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: #003366;
+  text-decoration: none;
+}
+.user-img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translateY(-60%);
+}
+.card.overflow-show {
+  overflow: visible!important;
+}
+.user-name {
+  padding: 7px 10px;
+  background-color: #003366;
+  color: #fff;
+  width: 110px;
+  text-align: center;
+  font-size: .8rem;
+  transform: translateX(-20px);
+  border-radius: 0 5px 5px 5px;
+}
+
