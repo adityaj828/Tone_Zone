@@ -102,6 +102,21 @@ img {
   text-align: center;
   font-size: .8rem;
   transform: translateX(-20px);
-  border-radius: 0 5px 5px 5px;
+  border-radius: 0 5px 0 5px;
 }
-
+.color-yellow {
+  color: #fc3;
+  font-size: 1.5rem;
+}
+.color-black {
+  color: #333;
+  font-size: 1.2rem;
+}
+.color-yellow-sm {
+  color: #fc3;
+  font-size: 1rem;
+}
+.color-black-sm {
+  color: #333;
+  font-size: .8rem;
+}
