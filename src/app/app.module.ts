@@ -22,6 +22,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { AuthenticationService } from './service/authentication.service';
 import { UserfooterComponent } from './user/shared/userfooter/userfooter.component';
 import { ServiceCardComponent } from './user/service-card/service-card.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 
 
@@ -38,6 +39,7 @@ import { ServiceCardComponent } from './user/service-card/service-card.component
     ContentAnimateDirective,
     UserfooterComponent,
     ServiceCardComponent,
+    SearchbarComponent,
   ],
   imports: [
     BrowserModule,
