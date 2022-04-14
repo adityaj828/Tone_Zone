@@ -20,6 +20,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { AuthenticationService } from './service/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserfooterComponent } from './user/shared/userfooter/userfooter.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { UserfooterComponent } from './user/shared/userfooter/userfooter.compone
     SpinnerComponent,
     ContentAnimateDirective,
     UserfooterComponent,
+    SearchbarComponent,
   ],
   imports: [
     BrowserModule,
