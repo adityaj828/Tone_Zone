@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {ServiceCardComponent} from './user/service-card/service-card.component';
+import { CardServiceService } from './card-service.service';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +13,38 @@ import {HttpClient} from '@angular/common/http';
 export class AppComponent implements OnInit{
   title = 'demo1';
 
+  serviceCenterDetails=null;
+  serviceCenterToUpdate=
+  {
+     id:"",
+	name:"",
+	email:"",
+	 img_url:"",
+ describtion:"",
+ raiting:"" 
+  }
+
   showSidebar: boolean = true;
   showNavbar: boolean = true;
   showFooter: boolean = true;
   isLoading: boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private ServiceCenter: CardServiceService) {
+    this.getServiceCenter();
+
+    /*getServiceCenter()
+    {
+      this.ServiceCenter.getServiceCenter().subscribe(
+        (resp)=>{
+          console.log(resp);
+          this.ServiceCenter=resp;
+        },
+        (err)=>
+        {
+          console.log(err);
+        }
+      );
+    }*/
     
     // Removing Sidebar, Navbar, Footer for Documentation, Error and Auth pages
     router.events.forEach((event) => { 
@@ -53,7 +81,23 @@ export class AppComponent implements OnInit{
       }
     });
   }
+  /*getServiceCenter() {
+    throw new Error('Method not implemented.');
+  }*/
 
+  getServiceCenter()
+    {
+      this.ServiceCenter.getServiceCenter().subscribe(
+        (resp)=>{
+          console.log(resp);
+          this.serviceCenterDetails=resp;
+        },
+        (err)=>
+        {
+          console.log(err);
+        }
+      );
+    }
 
 
   ngOnInit() {
@@ -66,3 +110,4 @@ export class AppComponent implements OnInit{
     });
   }
 }
+
