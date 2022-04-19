@@ -14,7 +14,7 @@ export class SlotService {
   //need to pass serviceCenterID & Booking Date values to the API call
   getSlots(serviceCenterId, bookingDate) {
     return this.httpClient.get<Slot[]>(
-      'http://localhost:8081/store',
+      'http://localhost:8081/displayAll',
     );
   }
 

@@ -40,28 +40,13 @@ export class SingleServiceComponent implements OnInit {
 
 
   getSlotData() {
-    // this.slotService.getSlots(this.serviceCenterId, this.bookingDate).subscribe(
-    //   resData => {
-    //     this.slotList = resData;
-    //   }, error => {
-    //     console.log(error);
-    //   }
-    // );
-    this.slotList = [{
-      slotId: 1,
-      slotDate: '18-04-2022',
-      slotTime: '9:00 AM',
-      status: "1",
-      customerId: 1,
-      serviceCenterId: 1
-    }, {
-      slotId: 1,
-      slotDate: '18-04-2022',
-      slotTime: '11:00 AM',
-      status: "1",
-      customerId: 1,
-      serviceCenterId: 1
-    }];
+     this.slotService.getSlots(this.serviceCenterId, this.bookingDate).subscribe(
+       resData => {
+         this.slotList = resData;
+       }, error => {
+         console.log(error);
+      }
+    );
   }
 
   setSlotBookingDate(dateObj: any) {
