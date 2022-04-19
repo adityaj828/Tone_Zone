@@ -1,15 +1,18 @@
 body {
-  background-color: #fff!important;
+  background-color: #fff !important;
 }
+
 .card-addon {
-  position: relative!important;
-  width: 100%!important;
-  border-radius: 10px!important;
-  overflow: hidden!important;
+  position: relative !important;
+  width: 100% !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
 }
+
 .view-40 {
-  height: 40vh!important;
+  height: 40vh !important;
 }
+
 .card-img {
   position: relative;
   width: 100%;
@@ -17,6 +20,7 @@ body {
   border-radius: 10px;
   overflow: hidden;
 }
+
 .img-overlay {
   position: absolute;
   width: 100%;
@@ -26,6 +30,7 @@ body {
   background-color: rgba(#333, .6);
   border-radius: 10px;
 }
+
 .center-name {
   position: absolute;
   width: 100%;
@@ -34,10 +39,12 @@ body {
   left: 5%;
   color: #fff;
 }
+
 img {
   width: 100%;
   height: 100%;
 }
+
 .half-circle {
   position: absolute;
   width: 100%;
@@ -47,12 +54,14 @@ img {
   top: -50%;
   border-radius: 50%;
 }
+
 .booking-card-heading {
   position: absolute;
   bottom: 4%;
   left: 50%;
   transform: translateX(-50%);
 }
+
 .day-selected {
   position: absolute;
   bottom: 0;
@@ -63,12 +72,20 @@ img {
   border-radius: 5px;
   transition: linear .3s all;
 }
+
+
+.days .selected {
+  border-bottom: 2px solid #003366;
+}
+
 .days:hover {
   cursor: pointer;
 }
+
 .text-color-primary {
   color: #003366;
 }
+
 .slot-btn {
   display: inline-block;
   padding: 7px 10px;
@@ -77,13 +94,25 @@ img {
   transition: linear .3s all;
   text-decoration: none;
   border-radius: 5px;
+  cursor: pointer;
 }
+
+.slot-btn.booked,
+.slot-btn.booked:hover {
+  border: 1px solid #cccccc;
+  background-color: #cccccc;
+  color: #000000;
+  cursor: default;
+}
+
+
 .slot-btn:hover {
   border: 1px solid #fff;
   color: #fff;
   background-color: #003366;
   text-decoration: none;
 }
+
 .user-img {
   width: 65px;
   height: 65px;
@@ -91,9 +120,11 @@ img {
   overflow: hidden;
   transform: translateY(-60%);
 }
+
 .card.overflow-show {
-  overflow: visible!important;
+  overflow: visible !important;
 }
+
 .user-name {
   padding: 7px 10px;
   background-color: #003366;
@@ -104,18 +135,22 @@ img {
   transform: translateX(-20px);
   border-radius: 0 5px 0 5px;
 }
+
 .color-yellow {
   color: #fc3;
   font-size: 1.5rem;
 }
+
 .color-black {
   color: #333;
   font-size: 1.2rem;
 }
+
 .color-yellow-sm {
   color: #fc3;
   font-size: 1rem;
 }
+
 .color-black-sm {
   color: #333;
   font-size: .8rem;

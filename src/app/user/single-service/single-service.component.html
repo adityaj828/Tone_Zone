@@ -31,7 +31,10 @@
             </div>
             <div class="col-md-12">
               <p class="text-muted">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium sit optio a porro ratione laudantium impedit ea perspiciatis, esse obcaecati, fuga nobis molestias natus veniam earum necessitatibus ducimus commodi provident ut tempore in! Eos id vero, inventore perspiciatis fugiat neque laudantium illo dignissimos aliquam quas a voluptate nulla, nisi vitae.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium sit optio a porro ratione
+                laudantium impedit ea perspiciatis, esse obcaecati, fuga nobis molestias natus veniam earum
+                necessitatibus ducimus commodi provident ut tempore in! Eos id vero, inventore perspiciatis fugiat neque
+                laudantium illo dignissimos aliquam quas a voluptate nulla, nisi vitae.
               </p>
             </div>
             <div class="col-md-12 mt-2">
@@ -78,7 +81,8 @@
                           <h4>Title For Review</h4>
                         </div>
                         <div class="review-msg">
-                          <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nostrum quis tenetur fuga error, adipisci, </p>
+                          <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nostrum
+                            quis tenetur fuga error, adipisci, </p>
                         </div>
                       </div>
                     </div>
@@ -114,19 +118,14 @@
               <div class="half-circle">
                 <h4 class="text-white booking-card-heading">Book Slot</h4>
               </div>
-              <div class="d-flex justify-content-around mt-3 mb-2">
-                <div class="days day1">
-                  <p class="m-0 text-color-primary">Today</p>
-                </div>
-                <div class="days day2">
-                  <p class="m-0 text-color-primary">Tomorrow</p>
-                </div>
-                <div class="days day3">
-                  <p class="m-0 text-color-primary">Tuesday</p>
+              <div class="d-flex mt-3 mb-2">
+                <div class="days flex-fill text-center" *ngFor="let dateObj of slotDates">
+                  <p class="m-0 text-color-primary " [ngClass]="{'selected': dateObj.value == bookingDate}"
+                    (click)="setSlotBookingDate(dateObj)">{{dateObj.text}}</p>
                 </div>
               </div>
-              <div class="mt-2 day-selected">
-              </div>
+              <!-- <div class="mt-2 day-selected">
+              </div> -->
             </div>
           </div>
         </div>
@@ -141,6 +140,13 @@
             <div class="py-4 px-3">
               <div class="d-flex flex-column">
                 <div class="d-flex justify-content-around">
+                  <div class="slot" *ngFor="let slotTime of morningSlots">
+                    <div *ngIf="checkSlotBooked(slotTime)" class="slot-btn booked">{{slotTime}}</div>
+                    <div *ngIf="!checkSlotBooked(slotTime)" class="slot-btn" (click)="bookSlot(slotTime)">{{slotTime}}
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="d-flex justify-content-around mt-2">
                   <div class="slot">
                     <a href="#" class="slot-btn">9:00 AM</a>
                   </div>
@@ -161,18 +167,7 @@
                   <div class="slot">
                     <a href="#" class="slot-btn">9:00 AM</a>
                   </div>
-                </div>
-                <div class="d-flex justify-content-around mt-2">
-                  <div class="slot">
-                    <a href="#" class="slot-btn">9:00 AM</a>
-                  </div>
-                  <div class="slot">
-                    <a href="#" class="slot-btn">9:00 AM</a>
-                  </div>
-                  <div class="slot">
-                    <a href="#" class="slot-btn">9:00 AM</a>
-                  </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -188,6 +183,12 @@
             <div class="py-4 px-3">
               <div class="d-flex flex-column">
                 <div class="d-flex justify-content-around">
+                  <div class="slot" *ngFor="let slotTime of afternoonSlots">
+                    <div *ngIf="checkSlotBooked(slotTime)" class="slot-btn booked">{{slotTime}}</div>
+                    <div *ngIf="!checkSlotBooked(slotTime)" class="slot-btn" (click)="bookSlot(slotTime)">{{slotTime}}
+                    </div>
+                  </div>
+                  <!-- <div class="d-flex justify-content-around mt-2">
                   <div class="slot">
                     <a href="#" class="slot-btn">9:00 AM</a>
                   </div>
@@ -208,17 +209,7 @@
                   <div class="slot">
                     <a href="#" class="slot-btn">9:00 AM</a>
                   </div>
-                </div>
-                <div class="d-flex justify-content-around mt-2">
-                  <div class="slot">
-                    <a href="#" class="slot-btn">9:00 AM</a>
-                  </div>
-                  <div class="slot">
-                    <a href="#" class="slot-btn">9:00 AM</a>
-                  </div>
-                  <div class="slot">
-                    <a href="#" class="slot-btn">9:00 AM</a>
-                  </div>
+                </div> -->
                 </div>
               </div>
             </div>
@@ -227,4 +218,3 @@
       </div>
     </div>
   </div>
-</div>
