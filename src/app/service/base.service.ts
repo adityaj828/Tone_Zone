@@ -9,12 +9,12 @@ export class BaseService {
   constructor(private http: HttpClient) { }
 
   public get(url) {
-    return this.http.get<any>(`http://localhost:8080/${url}`)
+    return this.http.get<any>(`http://localhost:8081/${url}`)
   }
 
   public post(url, data) {
     let headers = {'content-type': 'application/json'};
-    return this.http.post<any>(`http://localhost:8080/${url}`, data, {
+    return this.http.post<any>(`http://localhost:8081/${url}`, data, {
       'headers': headers
     });
   }

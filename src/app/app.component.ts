@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
 import { AuthenticationService } from './service/authentication.service';
+import {HttpClient} from '@angular/common/http';
+import {ServiceCardComponent} from './service-card/service-card.component';
+import { CardServiceService } from './service/card-service.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +12,23 @@ import { AuthenticationService } from './service/authentication.service';
 })
 export class AppComponent implements OnInit{
   title = 'demo1';
-
+  serviceCenterDetails=null;
+  serviceCenterToUpdate=
+  {
+     id:"",
+	name:"",
+	email:"",
+	 img_url:"",
+ describtion:"",
+ raiting:"" 
+  }
   showSidebar: boolean = true;
   showNavbar: boolean = true;
   showFooter: boolean = true;
   isLoading: boolean;
 
-  constructor(private router: Router, private authenticationService: AuthenticationService) {
-
+  constructor(private router: Router, private authenticationService: AuthenticationService,private ServiceCenter: CardServiceService) {
+    this.getServiceCenter();
     // Removing Sidebar, Navbar, Footer for Documentation, Error and Auth pages
     router.events.forEach((event) => {
       if(event instanceof NavigationStart) {
@@ -58,7 +70,19 @@ export class AppComponent implements OnInit{
       }
     });
   }
-
+  getServiceCenter()
+  {
+    this.ServiceCenter.getServiceCenter().subscribe(
+      (resp)=>{
+        console.log(resp);
+        this.serviceCenterDetails=resp;
+      },
+      (err)=>
+      {
+        console.log(err);
+      }
+    );
+  }
 
 
   ngOnInit() {

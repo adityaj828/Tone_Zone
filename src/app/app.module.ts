@@ -21,6 +21,7 @@ import { AuthenticationService } from './service/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserfooterComponent } from './user/shared/userfooter/userfooter.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { ServiceCardComponent } from './service-card/service-card.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     ContentAnimateDirective,
     UserfooterComponent,
     SearchbarComponent,
+    ServiceCardComponent,
   ],
   imports: [
     BrowserModule,
